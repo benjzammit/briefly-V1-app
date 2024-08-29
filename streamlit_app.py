@@ -20,7 +20,7 @@ st.markdown(
     <style>
         /* General Styling */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #f8f9fa;
         }
 
@@ -28,15 +28,44 @@ st.markdown(
             text-align: center;
             font-size: 48px;
             font-weight: bold;
-            color: #007bff; /* Electric Blue */ 
+            color: #2962FF; /* Briefly Blue */ 
             margin-bottom: 10px;
         }
 
         .subtitle {
             text-align: center;
-            font-size: 20px;
-            color: #616161; 
+            font-size: 24px;
+            color: #616161; /* Summit Gray */ 
             margin-bottom: 30px; 
+        }
+
+        .description {
+            text-align: center;
+            font-size: 18px;
+            color: #616161; /* Summit Gray */
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .how-it-works {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .how-it-works h2 {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .how-it-works ol {
+            text-align: left;
+            margin: 0 auto;
+            max-width: 800px;
+            padding-left: 20px;
+        }
+
+        .how-it-works li {
+            margin-bottom: 15px;
         }
 
         .benefit {
@@ -55,14 +84,14 @@ st.markdown(
         }
 
         .benefit h3 {
-            color: #007bff; /* Electric Blue */
+            color: #2962FF; /* Briefly Blue */
             margin-bottom: 10px; /* Add space below heading */
         }
 
         .trained-text {
             text-align: center;
             font-size: 18px;
-            color: #616161;
+            color: #616161; /* Summit Gray */
             margin-bottom: 30px;
         }
 
@@ -75,7 +104,7 @@ st.markdown(
         .benefit-icon {
             font-size: 48px; /* Larger icon */
             margin-bottom: 15px; /* Add space below icon */
-            color: #ffa500; /* Vibrant Orange */
+            color: #FFA500; /* Spark Orange */
         }
 
         .suggestion-text {
@@ -96,12 +125,12 @@ st.markdown(
         .metric-value {
             font-size: 36px;
             font-weight: bold;
-            color: #007bff; /* Electric Blue */
+            color: #2962FF; /* Briefly Blue */
         }
 
         .metric-label {
             font-size: 18px;
-            color: #616161;
+            color: #616161; /* Summit Gray */
         }
 
         /* Accordion styling */
@@ -114,7 +143,7 @@ st.markdown(
 
         /* Button styling */
         .stButton>button {
-            background-color: #007bff; /* Electric Blue */
+            background-color: #2962FF; /* Briefly Blue */
             color: white;
             border: none;
             border-radius: 10px;
@@ -133,13 +162,13 @@ st.markdown(
         .gap-analysis-title, .competitors-title, .sentiment-title {
             font-size: 24px;
             font-weight: bold;
-            color: #007bff; /* Electric Blue */
+            color: #2962FF; /* Briefly Blue */
             margin-bottom: 10px;
         }
 
         .gap-analysis-item {
             font-size: 16px;
-            color: #616161;
+            color: #616161; /* Summit Gray */
         }
 
         .highlight {
@@ -586,11 +615,11 @@ def rewrite_brief(original_text, df_results):
 
 # --- Main App ---
 st.markdown('<h1 class="title">💡 Briefly</h1>', unsafe_allow_html=True)
-st.markdown('<p class="subtitle">Bridging the Gaps in Marketing Collaboration</p>', unsafe_allow_html=True)
+st.markdown('<p class="subtitle">Crafting Briefs That Inspire Marketing Success</p>', unsafe_allow_html=True)
 
 # --- Trained on Marketing Briefs Text ---
 st.markdown(
-    '<p class="description">Briefly is designed to help agencies, in-house teams, and freelancers create effective and impactful campaigns by ensuring alignment, streamlining workflows, and enabling data-driven decisions.</p>',
+    '<p class="description">In the world of marketing, a well-crafted brief is the difference between mediocrity and exceptional results. Briefly empowers you to align expectations, unlock creative potential, and drive measurable results.</p>',
     unsafe_allow_html=True,
 )
 
@@ -610,50 +639,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# --- Benefits Section (using st.columns) ---
-col1, col2, col3 = st.columns(3) # Create 3 columns
 
-with col1:
-    st.markdown(
-        """
-        <div class="benefit">
-            <div class="benefit-container">
-                <span class="benefit-icon">🎯</span> 
-                <h3>Alignment from Day One</h3>
-            </div>
-            <p>Ensure everyone is on the same page from the start.</p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-with col2:
-    st.markdown(
-        """
-        <div class="benefit">
-            <div class="benefit-container">
-                <span class="benefit-icon">⚙️</span> 
-                <h3>Streamlined Workflow</h3>
-            </div>
-            <p>Simplify your processes and save valuable time.</p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-with col3:
-    st.markdown(
-        """
-        <div class="benefit">
-            <div class="benefit-container">
-                <span class="benefit-icon">📊</span> 
-                <h3>Data-Driven Decisions</h3>
-            </div>
-            <p>Make informed choices backed by solid data.</p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
 
 # --- File Upload ---
 uploaded_file = st.file_uploader(
@@ -843,8 +829,7 @@ if uploaded_file is not None:
                 st.markdown("---")
                 st.header("📈 Major Improvements")
                 st.markdown("""
-                    In this section, we highlight major improvements made to your marketing brief. 
-                    These improvements are based on a detailed analysis and aim to enhance the effectiveness of your brief.
+                    In this section, we highlight major improvements made to your marketing brief. These improvements are based on a detailed analysis and aim to enhance the effectiveness of your brief.
                     Below are some examples of changes made:
                     - **Target Audience:** From "No target demographics specified" to "Included target demographics such as age 25-34, gender: female, location: New York, interests: fitness, wellness."
                     - **Competitive Landscape:** From "No competitors mentioned" to "Added relevant competitors such as Competitor A, Competitor B, Competitor C."
@@ -865,7 +850,64 @@ if uploaded_file is not None:
     except Exception as e:
         st.error(f"An error occurred: {e}")
 
-        # --- FAQ Section ---
+
+# --- Benefits Section ---
+st.markdown("---")
+st.header("Why Choose Briefly?")
+st.markdown(
+    """
+    <p class="description">
+        Briefly combines the expertise of seasoned marketing professionals with the power of AI to help you craft marketing briefs that drive success. Our platform provides you with the tools and insights needed to ensure your campaigns are effective, targeted, and impactful.
+    </p>
+    """,
+    unsafe_allow_html=True,
+)
+
+col1, col2, col3 = st.columns(3) # Create 3 columns
+
+with col1:
+    st.markdown(
+        """
+        <div class="benefit">
+            <div class="benefit-container">
+                <span class="benefit-icon">🎯</span> 
+                <h3>A Foundation for Success</h3>
+            </div>
+            <p>Briefly provides the framework and expert guidance to craft briefs that inspire confidence and clarity. We help you articulate your vision, define measurable objectives, and ensure everyone is on the same page from day one.</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+with col2:
+    st.markdown(
+        """
+        <div class="benefit">
+            <div class="benefit-container">
+                <span class="benefit-icon">⚙️</span> 
+                <h3>Streamlined Collaboration</h3>
+            </div>
+            <p>Briefly facilitates seamless communication and collaboration, eliminating ambiguity and reducing time-consuming revisions. It's like having an experienced marketing director guiding your team every step of the way.</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+with col3:
+    st.markdown(
+        """
+        <div class="benefit">
+            <div class="benefit-container">
+                <span class="benefit-icon">📊</span> 
+                <h3>Data-Driven Insights</h3>
+            </div>
+            <p>Briefly goes beyond gut feelings. Our analysis provides actionable insights, identifies potential gaps, and helps you refine your strategy for maximum impact.</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+# --- FAQ Section ---
 st.markdown("---")
 st.header("❓ Frequently Asked Questions (FAQ)")
 
