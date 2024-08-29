@@ -196,7 +196,7 @@ st.markdown(
 # --- Functions ---
 
 # --- Load API Key from Secrets ---
-api_key = "AIzaSyCkgn6nlhZR2V3lDag6kmyD-FmGch6dQzM"
+api_key = st.secrets["api_keys"]["GOOGLE_API_KEY"]
 genai.configure(api_key=api_key)
 
 def extract_text_from_docx(file_bytes):
