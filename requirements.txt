@@ -4,3 +4,4 @@ google-generativeai
 docx
 PyPDF2
 json_repair
+textblob
