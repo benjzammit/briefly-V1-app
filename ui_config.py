@@ -146,44 +146,40 @@ def apply_custom_styles():
 
             /* Benefit Card Styles */
             .benefit-card-container {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                margin-bottom: 40px;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+                gap: 20px; 
             }
 
             .benefit-card {
                 background-color: #fff;
                 border-radius: 8px;
                 padding: 30px;
-                margin-bottom: 20px;
                 box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-                flex: 0 0 calc(33.333% - 20px); 
-                text-align: left; /* Align text to the left within the card */
+                text-align: left; 
+                display: flex; 
+                flex-direction: column; 
             }
 
-            @media (max-width: 768px) {
-                .benefit-card {
-                    flex: 0 0 100%;
-                    margin-bottom: 20px;
-                }
+            .benefit-card .benefit-description {
+                flex-grow: 1; 
             }
 
-            .benefit-container { /* Style the container for the icon and title */
+            .benefit-container { 
                 display: flex;
-                align-items: center; /* Vertically align icon and title */
+                align-items: center; 
                 margin-bottom: 15px; 
             }
 
             .benefit-icon {
                 font-size: 28px; 
-                margin-right: 10px; /* Space between icon and title */
+                margin-right: 10px; 
             }
 
             .benefit-title {
                 color: #2962FF;
                 font-size: 24px;
-                margin-bottom: 0; /* Remove default margin from h3 */
+                margin-bottom: 0; 
             }
 
             .benefit-description {

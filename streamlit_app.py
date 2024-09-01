@@ -279,10 +279,10 @@ with col1:
         """
         <div class="benefit-card">
             <div class="benefit-container">
-                <span class="benefit-icon">🎯</span> 
-                <h3 class="benefit-title">A Foundation for Success</h3>
+                <span class="benefit-icon">🧠</span> 
+                <h3 class="benefit-title">Get Expert Advice</h3>
             </div>
-            <p class="benefit-description">Briefly provides the framework and expert guidance to craft briefs that inspire confidence and clarity. We help you articulate your vision, define measurable objectives, and ensure everyone is on the same page from day one.</p>
+            <p class="benefit-description">Benefit from the collective wisdom of seasoned marketing professionals. Briefly's AI analyzes your brief and provides tailored recommendations based on industry best practices, ensuring your strategy is set up for success.</p>
         </div>
         """,
         unsafe_allow_html=True,
@@ -293,10 +293,10 @@ with col2:
         """
         <div class="benefit-card">
             <div class="benefit-container">
-                <span class="benefit-icon">⚙️</span> 
-                <h3 class="benefit-title">Streamlined Collaboration</h3>
+                <span class="benefit-icon">💪</span> 
+                <h3 class="benefit-title">Craft Briefs with Confidence</h3>
             </div>
-            <p class="benefit-description">Briefly facilitates seamless communication and collaboration, eliminating ambiguity and reducing time-consuming revisions. It's like having an experienced marketing director guiding your team every step of the way.</p>
+            <p class="benefit-description">Eliminate the guesswork and uncertainty from brief creation. Briefly's intuitive platform guides you through each step, providing clear suggestions and actionable insights so you can build winning briefs every time.</p>
         </div>
         """,
         unsafe_allow_html=True,
@@ -307,10 +307,10 @@ with col3:
         """
         <div class="benefit-card">
             <div class="benefit-container">
-                <span class="benefit-icon">📊</span> 
-                <h3 class="benefit-title">Data-Driven Insights</h3>
+                <span class="benefit-icon">🚀</span> 
+                <h3 class="benefit-title">Create Business Impact</h3>
             </div>
-            <p class="benefit-description">Briefly goes beyond gut feelings. Our analysis provides actionable insights, identifies potential gaps, and helps you refine your strategy for maximum impact.</p>
+            <p class="benefit-description">Don't just launch campaigns—drive measurable results. Briefly helps you define clear objectives, track key metrics, and optimize your strategies to maximize your marketing ROI and achieve your business goals.</p>
         </div>
         """,
         unsafe_allow_html=True,
