@@ -7,6 +7,45 @@ def set_page_config():
         layout="wide",  # Use the full page width
     )
 
+def add_footer():
+    st.markdown(
+        """
+        <style>
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: #f8f9fa;
+                color: #616161;
+                text-align: center;
+                padding: 10px 0;
+                font-size: 14px;
+            }
+            .footer a {
+                color: #2962FF;
+                text-decoration: none;
+            }
+            .footer a:hover {
+                text-decoration: underline;
+            }
+            .footer-icon {
+                vertical-align: middle;
+                margin-right: 5px;
+            }
+        </style>
+        <div class="footer">
+            Built by Benjamin Zammit - Strategy and Implementation Manager at InDomo, a WPP Company.
+            <br>
+            <a href="https://www.linkedin.com/in/benjamin-zammit/" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="footer-icon" width="16" height="16">
+                Connect with me on LinkedIn
+            </a>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
 def apply_custom_styles():
     st.markdown(
         """

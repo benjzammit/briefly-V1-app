@@ -29,7 +29,7 @@ def generate_prompt(text):
     {{
       "overall_score": {{score}},
       "breakdown": {{
-        "focus_clarity": {{
+        "clarity_of_objectives": {{
           "score": {{score}},
           "feedback": "{{feedback}}",
           "extracted_objectives": ["list of extracted objectives from the text"], 
@@ -40,13 +40,13 @@ def generate_prompt(text):
           "feedback": "{{feedback}}",
           "alignment_issues": ["list of potential misalignments with business goals (if any)"]
         }},
-        "target_audience": {{
+        "target_audience_definition": {{
           "score": {{score}},
           "feedback": "{{feedback}}",
           "extracted_demographics": ["age", "location", "interests", "other relevant demographics"],
           "target_audience_examples": ["specific examples of the target audience mentioned in the text"]
         }},
-        "competitive_landscape": {{
+        "competitive_analysis": {{
           "score": {{score}},
           "feedback": "{{feedback}}",
           "competitors_mentioned": ["list of competitor brands mentioned"],
@@ -58,7 +58,7 @@ def generate_prompt(text):
           "recommended_channels": ["list of potentially effective channels based on the brief"],
           "channel_justifications": ["reasons for recommending each channel"]
         }},
-        "measurement_kpis": {{
+        "key_performance_indicators": {{
           "score": {{score}},
           "feedback": "{{feedback}}",
           "extracted_kpis": ["list of KPIs mentioned in the brief"],
@@ -128,7 +128,7 @@ def analyze_text(text):
         gap_analysis_results = response_data.get('gap_analysis', [])
 
         # Extract competitors mentioned
-        competitors_mentioned = data['Competitive Landscape']['Competitors Mentioned']
+        competitors_mentioned = data['Competitive Analysis']['Competitors Mentioned']
 
         return df_results, overall_score, gap_analysis_results, competitors_mentioned 
     except json.JSONDecodeError as e:

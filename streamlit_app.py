@@ -3,12 +3,13 @@ import pandas as pd
 import docx
 import io
 import asyncio
+import ui_config
 
 from text_extraction import extract_text_from_docx, extract_text_from_pdf
 from sentiment_analysis import analyze_sentiment, interpret_sentiment
 from ai_analysis import analyze_text_async, rewrite_brief
 from utils import parse_and_improve
-import ui_config
+from ui_config import add_footer
 
 # --- UI Configuration ---
 ui_config.set_page_config()
@@ -32,7 +33,7 @@ st.markdown(
         <ol style="text-align: left; margin: 0 auto; max-width: 800px;">
             <li><strong>Upload Your Brief:</strong> Upload your marketing brief in DOCX or PDF format.</li>
             <li><strong>AI Analysis:</strong> Our AI analyzes your brief to provide actionable insights.</li>
-            <li><strong>Receive Feedback:</strong> Get feedback on focus clarity, strategic alignment, target audience, competitive landscape, channel strategy, and measurement KPIs.</li>
+            <li><strong>Receive Feedback:</strong> Get feedback on clarity of objectives, strategic alignment, target audience definition, competitive analysis, channel strategy, and key performance indicators (KPIs).</li>
             <li><strong>Drive Results:</strong> Use the insights to create more effective and impactful marketing campaigns that drive results.</li>
         </ol>
     </div>
@@ -133,7 +134,7 @@ if uploaded_file is not None:
             with col2:
                 st.markdown('<h3 class="competitors-title">🌍 Target Location/Market</h3>', unsafe_allow_html=True)
 
-                target_locations = df_results.loc['Target Audience', 'Target Locations'] if 'Target Audience' in df_results.index else []
+                target_locations = df_results.loc['Target Audience Definition', 'Target Locations'] if 'Target Audience Definition' in df_results.index else []
 
                 if target_locations:
                     st.markdown("The following target locations/markets were mentioned in your brief:")
@@ -234,11 +235,10 @@ if uploaded_file is not None:
                 st.markdown("""
                     In this section, we highlight major improvements made to your marketing brief. These improvements are based on a detailed analysis and aim to enhance the effectiveness of your brief.
                     Below are some examples of changes made:
-                    - **Target Audience:** From "No target demographics specified" to "Included target demographics such as age 25-34, gender: female, location: New York, interests: fitness, wellness."
-                    - **Competitive Landscape:** From "No competitors mentioned" to "Added relevant competitors such as Competitor A, Competitor B, Competitor C."
-                    - **Measurement KPIs:** From "No KPIs defined" to "Included KPIs such as conversion rate, click-through rate, customer acquisition cost."
+                    - **Target Audience Definition:** From "No target demographics specified" to "Included target demographics such as age 25-34, gender: female, location: New York, interests: fitness, wellness."
+                    - **Competitive Analysis:** From "No competitors mentioned" to "Added relevant competitors such as Competitor A, Competitor B, Competitor C."
+                    - **Key Performance Indicators (KPIs):** From "No KPIs defined" to "Included KPIs such as conversion rate, click-through rate, customer acquisition cost."
                 """)
-
                 if from_to_quotes:
                     for category, quotes in from_to_quotes.items():
                         with st.expander(f"**{category}**"):
@@ -309,6 +309,74 @@ with col3:
         unsafe_allow_html=True,
     )
 
+    # --- Score Explanation Table ---
+st.markdown("---")
+st.header("Understanding Your Scores")
+st.markdown(
+    """
+    <p class="description">
+        The following table explains the criteria used to evaluate your marketing brief. Each criterion is crucial for creating an effective and impactful marketing campaign.
+    </p>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown(
+    """
+    <div class="table-container">
+        <table class="score-table">
+            <thead>
+                <tr>
+                    <th>Criterion</th>
+                    <th>Description</th>
+                    <th>Importance</th>
+                    <th>Tips for Improvement</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Clarity of Objectives</td>
+                    <td>Evaluates how clear and specific the objectives of the marketing brief are.</td>
+                    <td>Clear objectives help ensure everyone understands the goals and can work towards them effectively.</td>
+                    <td>Define specific, measurable, achievable, relevant, and time-bound (SMART) objectives.</td>
+                </tr>
+                <tr>
+                    <td>Strategic Alignment</td>
+                    <td>Checks if the brief aligns with overall business goals and strategies.</td>
+                    <td>Ensures the marketing efforts support the broader business objectives.</td>
+                    <td>Clearly articulate how the campaign supports the company's overall marketing and business objectives.</td>
+                </tr>
+                <tr>
+                    <td>Target Audience Definition</td>
+                    <td>Assesses how well-defined and relevant the target audience is.</td>
+                    <td>A well-defined target audience helps tailor the marketing strategy to reach the right people.</td>
+                    <td>Specify demographics, psychographics, behaviors, and needs of the target audience.</td>
+                </tr>
+                <tr>
+                    <td>Competitive Analysis</td>
+                    <td>Identifies competitors and competitive advantages mentioned in the brief.</td>
+                    <td>Understanding competitors helps differentiate your offering and develop effective strategies.</td>
+                    <td>Research and identify key competitors, analyze their strengths and weaknesses, and highlight your unique value proposition.</td>
+                </tr>
+                <tr>
+                    <td>Channel Strategy</td>
+                    <td>Recommends effective channels for the campaign based on the brief.</td>
+                    <td>Choosing the right channels ensures the message reaches the target audience effectively.</td>
+                    <td>Develop a comprehensive channel strategy and justify the selection of each channel based on its relevance to the audience.</td>
+                </tr>
+                <tr>
+                    <td>Key Performance Indicators (KPIs)</td>
+                    <td>Suggests key performance indicators to track the success of the campaign.</td>
+                    <td>KPIs help measure the effectiveness of the campaign and guide data-driven adjustments.</td>
+                    <td>Define specific and measurable KPIs related to your objectives, such as website traffic, lead generation, and sales conversions.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
 # --- FAQ Section ---
 st.markdown("---")
 st.header("❓ Frequently Asked Questions (FAQ)")
@@ -318,28 +386,31 @@ faq_items = [
         "question": "How does Briefly analyze my marketing brief?",
         "answer": """
         Briefly uses advanced natural language processing (NLP) techniques and machine learning models to analyze your marketing brief. 
-        It evaluates various aspects such as focus clarity, strategic alignment, target audience, competitive landscape, channel strategy, and measurement KPIs.
+        It evaluates various aspects such as clarity of objectives, strategic alignment, target audience definition, competitive analysis, channel strategy, and key performance indicators (KPIs).
         """
     },
     {
         "question": "What metrics are used in the analysis?",
         "answer": """
         The analysis includes several metrics:
-        - **Focus Clarity:** Evaluates how clear and concise the objectives are.
-        - **Strategic Alignment:** Checks if the brief aligns with overall business goals.
-        - **Target Audience:** Assesses the specificity and relevance of the target audience.
-        - **Competitive Landscape:** Identifies competitors and competitive advantages.
-        - **Channel Strategy:** Recommends effective channels for the campaign.
-        - **Measurement KPIs:** Suggests key performance indicators to track success.
+        
+        | Criterion                  | Description                                                                                      | Importance                                                                                           | Tips for Improvement                                                                                                                                           |
+        |----------------------------|--------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+        | Clarity of Objectives      | Evaluates how clear and specific the objectives of the marketing brief are.                      | Clear objectives help ensure everyone understands the goals and can work towards them effectively.   | Define specific, measurable, achievable, relevant, and time-bound (SMART) objectives.                                     |
+        | Strategic Alignment        | Checks if the brief aligns with overall business goals and strategies.                           | Ensures the marketing efforts support the broader business objectives.                               | Clearly articulate how the campaign supports the company's overall marketing and business objectives.                      |
+        | Target Audience Definition | Assesses how well-defined and relevant the target audience is.                                   | A well-defined target audience helps tailor the marketing strategy to reach the right people.        | Specify demographics, psychographics, behaviors, and needs of the target audience.                                         |
+        | Competitive Analysis       | Identifies competitors and competitive advantages mentioned in the brief.                        | Understanding competitors helps differentiate your offering and develop effective strategies.        | Research and identify key competitors, analyze their strengths and weaknesses, and highlight your unique value proposition. |
+        | Channel Strategy           | Recommends effective channels for the campaign based on the brief.                               | Choosing the right channels ensures the message reaches the target audience effectively.             | Develop a comprehensive channel strategy and justify the selection of each channel based on its relevance to the audience.  |
+        | Key Performance Indicators (KPIs) | Suggests key performance indicators to track the success of the campaign.                          | KPIs help measure the effectiveness of the campaign and guide data-driven adjustments.               | Define specific and measurable KPIs related to your objectives, such as website traffic, lead generation, and sales conversions. |
         """
     },
     {
         "question": "Can I see examples of improvements?",
         "answer": """
         Yes, here are some examples:
-        - **Target Audience:** From "No target demographics specified" to "Included target demographics such as age 25-34, gender: female, location: New York, interests: fitness, wellness."
-        - **Competitive Landscape:** From "No competitors mentioned" to "Added relevant competitors such as Competitor A, Competitor B, Competitor C."
-        - **Measurement KPIs:** From "No KPIs defined" to "Included KPIs such as conversion rate, click-through rate, customer acquisition cost."
+        - **Target Audience Definition:** From "No target demographics specified" to "Included target demographics such as age 25-34, gender: female, location: New York, interests: fitness, wellness."
+        - **Competitive Analysis:** From "No competitors mentioned" to "Added relevant competitors such as Competitor A, Competitor B, Competitor C."
+        - **Key Performance Indicators (KPIs):** From "No KPIs defined" to "Included KPIs such as conversion rate, click-through rate, customer acquisition cost."
         """
     },
     {
@@ -361,3 +432,5 @@ faq_items = [
 for item in faq_items:
     with st.expander(item["question"]):
         st.markdown(item["answer"])
+
+add_footer()

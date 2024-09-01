@@ -21,7 +21,7 @@ def parse_and_improve(df, overall_score):
             "Examples": []
         }
 
-        if category == 'Focus & Clarity':
+        if category == 'Clarity Of Objectives':
             if row['Extracted Objectives']:
                 improvement_areas[category]["Suggestions"].append(
                     f"Consider refining the following objectives to ensure they are clear, measurable, and ambitious: {', '.join(row['Extracted Objectives'])}"
@@ -46,7 +46,7 @@ def parse_and_improve(df, overall_score):
                     "Clearly articulate how the campaign directly aligns with and supports the company's overall marketing and business objectives. Provide specific examples to demonstrate the connection."
                 )
 
-        elif category == 'Target Audience':
+        elif category == 'Target Audience Definition':
             if row['Extracted Demographics'] or row['Target Audience Examples']:
                 if row['Extracted Demographics']:
                     demographics_str = ', '.join(row['Extracted Demographics'])
@@ -63,7 +63,7 @@ def parse_and_improve(df, overall_score):
                     "Define a specific target audience by considering demographics, psychographics, behaviors, and needs. Avoid overly broad descriptions."
                 )
 
-        elif category == 'Competitive Landscape':
+        elif category == 'Competitive Analysis':
             if row['Competitors Mentioned']:
                 improvement_areas[category]["Suggestions"].append(
                     f"Conduct a thorough analysis of these competitors to identify opportunities for differentiation and develop effective competitive strategies: {', '.join(row['Competitors Mentioned'])}"
@@ -99,7 +99,7 @@ def parse_and_improve(df, overall_score):
                         channel = row['Recommended Channels'][i]
                         improvement_areas[category]["Suggestions"].append(f" - **{channel}:** {justification}")
 
-        elif category == 'Measurement & KPIs':
+        elif category == 'Key Performance Indicators':
             if row['Extracted KPIs']:
                 improvement_areas[category]["Suggestions"].append(
                     f"Establish a system for consistently tracking and measuring these KPIs to evaluate campaign performance and make data-driven adjustments: {', '.join(row['Extracted KPIs'])}"
