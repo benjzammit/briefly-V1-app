@@ -2,7 +2,7 @@ import streamlit as st
 
 def set_page_config():
     st.set_page_config(
-        page_title="Briefly - Bridging the Gaps in Marketing Collaboration",
+        page_title="Briefly - Transform Your Briefs, Transform Your Results",
         page_icon=":bulb:",
         layout="wide",  # Use the full page width
     )
