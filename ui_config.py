@@ -65,10 +65,14 @@ def apply_custom_styles():
             }
 
             .subtitle {
-                text-align: center;
-                font-size: 24px;
+                font-size: 28px;
                 color: #ffffff; /* White text for contrast */
-                margin-bottom: 30px; 
+                margin-bottom: 30px;
+                background-color: rgba(218, 112, 214, 0.85);  #DA70D6 */
+                padding: 4px 8px; /* Adjust padding as needed */
+                border-radius: 4px; /* Optional: Add rounded corners */
+                display: inline;
+                text-align: center;
             }
 
             .background-container {
@@ -95,13 +99,14 @@ def apply_custom_styles():
             .content {
                 position: relative;
                 z-index: 2;
+                text-align: center; 
             }
 
             .section-title {
                 text-align: center;
                 font-size: 36px;
                 font-weight: bold;
-                color: #2962FF; /* Briefly Blue */
+                color: #800080; /* purple */
                 margin-top: 40px;
                 margin-bottom: 20px;
             }
@@ -177,7 +182,7 @@ def apply_custom_styles():
             }
 
             .benefit-title {
-                color: #2962FF;
+                color: #800080;
                 font-size: 24px;
                 margin-bottom: 0; 
             }
@@ -186,6 +191,30 @@ def apply_custom_styles():
                 color: #616161;
                 font-size: 16px;
                 line-height: 1.5;
+            }
+
+            /* Understanding Your Scores Section */
+            .category-container {
+                display: flex;
+                align-items: flex-start; 
+                margin-bottom: 20px;
+                padding: 20px;
+                border-radius: 8px;
+                background-color: #f5f5f5; 
+            }
+
+            .category-icon {
+                font-size: 3em;
+                margin-right: 20px;
+            }
+
+            .category-description {
+                flex: 1; 
+            }
+
+            /* Style for tab titles */
+            button[data-baseweb="tab"] {
+                font-size: 18px !important; /* Adjust font size as needed */
             }
         </style>
         """,

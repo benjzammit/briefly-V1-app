@@ -22,7 +22,7 @@ st.markdown(
         <div class="overlay"></div>
         <div class="content">
             <h1 class="title">💡 Briefly</h1>
-            <p class="subtitle">Unlock Exceptional Marketing: Transform Your Briefs, Transform Your Results.</p>
+            <p class="subtitle">&nbsp&nbspTransform Your Briefs, Transform Your Results.&nbsp&nbsp</p>
         </div>
     </div>
     """,
@@ -317,77 +317,74 @@ with col3:
     )
 st.markdown('</div>', unsafe_allow_html=True) # Close the benefit-card-container
 
-# --- Score Explanation Table ---
+# --- Understanding Your Scores Section ---
 st.markdown("---")
-st.header("Understanding Your Scores")
+st.header("What We Focus On To Score Your Briefs")
+st.markdown(
+    "Our expert analysis powered by AI evaluates your marketing brief across key areas to pinpoint strengths and highlight opportunities for improvement.  Click on each category below to learn more:"
+)
+
+# Category Explanations (Tabs)
+categories = {
+    "🎯 Clarity of Objectives": {
+        "What We Look For": "Clearly defined, measurable, and achievable marketing objectives that align with your overall business goals.",
+        "Why It Matters": "Clear objectives ensure everyone understands the goals and can work towards them effectively.",
+        "Tips to Improve": " - Use the SMART framework (Specific, Measurable, Achievable, Relevant, Time-bound).<br> - Clearly link objectives to business outcomes.<br> - Ensure alignment across your marketing team."
+    },
+    "🤝 Strategic Alignment": {
+        "What We Look For": "Clear links between your marketing campaign and your overall business objectives and strategies.",
+        "Why It Matters": "Ensures your marketing efforts directly contribute to achieving your company's wider goals.",
+        "Tips to Improve": " - Explicitly state how the campaign supports key business goals.<br> - Align marketing metrics with business KPIs.<br> - Communicate the campaign's strategic importance to stakeholders."
+    },
+    "👥 Target Audience Definition": {
+        "What We Look For": "A well-defined target audience with specific demographics, psychographics, behaviors, and needs.",
+        "Why It Matters": "Understanding your audience is crucial for crafting targeted messaging and choosing the right channels.",
+        "Tips to Improve": " - Create detailed buyer personas.<br> - Conduct market research to understand your audience's needs and pain points.<br> - Use data to segment your audience for more targeted campaigns."
+    },
+    "⚔️ Competitive Analysis": {
+        "What We Look For": "Thorough research on your competitors, highlighting their strengths, weaknesses, and your brand's unique value proposition.",
+        "Why It Matters": "A strong competitive analysis helps you differentiate your offering and develop more effective strategies.",
+        "Tips to Improve": " - Identify your top competitors.<br> - Analyze their marketing strategies, target audience, and messaging.<br> - Clearly articulate your competitive advantages."
+    },
+    "🗺️ Channel Strategy": {
+        "What We Look For": "A strategic approach to channel selection, ensuring you reach your target audience in the most effective way.",
+        "Why It Matters": "The right channels amplify your message and maximize your campaign's reach.",
+        "Tips to Improve": " - Consider your target audience's preferred channels.<br> - Research the strengths and limitations of different channels.<br> - Use a mix of online and offline channels for a holistic approach."
+    },
+    "🔑 Key Performance Indicators (KPIs)": {
+        "What We Look For": "Specific, measurable, and relevant KPIs that align with your objectives and allow you to track campaign performance.",
+        "Why It Matters": "KPIs provide insights into what's working and what's not, enabling data-driven optimization.",
+        "Tips to Improve": " - Choose KPIs that directly relate to your objectives.<br> - Set realistic and measurable targets for each KPI.<br> - Regularly track and analyze your KPIs to make data-driven adjustments."
+    },
+}
+
+# CSS Styling 
 st.markdown(
     """
-    <p class="section-description">
-        The following table explains the criteria used to evaluate your marketing brief. Each criterion is crucial for creating an effective and impactful marketing campaign.
-    </p>
+    <style>
+        /* Style for tab titles */
+        button[data-baseweb="tab"] { 
+            font-size: 18px !important; /* Adjust font size as needed */
+        }
+    </style>
     """,
     unsafe_allow_html=True,
 )
 
-st.markdown(
-    """
-    <div class="table-container">
-        <table class="score-table">
-            <thead>
-                <tr>
-                    <th>Criterion</th>
-                    <th>Description</th>
-                    <th>Importance</th>
-                    <th>Tips for Improvement</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Clarity of Objectives</td>
-                    <td>Evaluates how clear and specific the objectives of the marketing brief are.</td>
-                    <td>Clear objectives help ensure everyone understands the goals and can work towards them effectively.</td>
-                    <td>Define specific, measurable, achievable, relevant, and time-bound (SMART) objectives.</td>
-                </tr>
-                <tr>
-                    <td>Strategic Alignment</td>
-                    <td>Checks if the brief aligns with overall business goals and strategies.</td>
-                    <td>Ensures the marketing efforts support the broader business objectives.</td>
-                    <td>Clearly articulate how the campaign supports the company's overall marketing and business objectives.</td>
-                </tr>
-                <tr>
-                    <td>Target Audience Definition</td>
-                    <td>Assesses how well-defined and relevant the target audience is.</td>
-                    <td>A well-defined target audience helps tailor the marketing strategy to reach the right people.</td>
-                    <td>Specify demographics, psychographics, behaviors, and needs of the target audience.</td>
-                </tr>
-                <tr>
-                    <td>Competitive Analysis</td>
-                    <td>Identifies competitors and competitive advantages mentioned in the brief.</td>
-                    <td>Understanding competitors helps differentiate your offering and develop effective strategies.</td>
-                    <td>Research and identify key competitors, analyze their strengths and weaknesses, and highlight your unique value proposition.</td>
-                </tr>
-                <tr>
-                    <td>Channel Strategy</td>
-                    <td>Recommends effective channels for the campaign based on the brief.</td>
-                    <td>Choosing the right channels ensures the message reaches the target audience effectively.</td>
-                    <td>Develop a comprehensive channel strategy and justify the selection of each channel based on its relevance to the audience.</td>
-                </tr>
-                <tr>
-                    <td>Key Performance Indicators (KPIs)</td>
-                    <td>Suggests key performance indicators to track the success of the campaign.</td>
-                    <td>KPIs help measure the effectiveness of the campaign and guide data-driven adjustments.</td>
-                    <td>Define specific and measurable KPIs related to your objectives, such as website traffic, lead generation, and sales conversions.</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+# Create tabs
+tabs = st.tabs(list(categories.keys()))
+
+# Display content for each tab
+for i, (category, details) in enumerate(categories.items()):
+    with tabs[i]:
+        st.markdown(f"**What We Look For:** {details['What We Look For']}")
+        st.markdown(f"**Why It Matters:** {details['Why It Matters']}")
+        st.markdown(f"**Tips to Improve:** {details['Tips to Improve']}", unsafe_allow_html=True)
+
 
 # --- FAQ Section ---
 st.markdown("---")
-st.header("❓ Frequently Asked Questions (FAQ)")
+st.header("Frequently Asked Questions (FAQ)")
 
 faq_items = [
     {
