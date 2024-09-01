@@ -16,27 +16,32 @@ ui_config.set_page_config()
 ui_config.apply_custom_styles()
 
 # --- Main App ---
-st.markdown('<h1 class="title">💡 Briefly</h1>', unsafe_allow_html=True)
-st.markdown('<p class="subtitle">Crafting Briefs That Inspire Marketing Success</p>', unsafe_allow_html=True)
-
-# --- Trained on Marketing Briefs Text ---
 st.markdown(
-    '<p class="description">In the world of marketing, a well-crafted brief is the difference between mediocrity and exceptional results. Briefly empowers you to align expectations, unlock creative potential, and drive measurable results.</p>',
+    """
+    <div class="background-container">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1 class="title">💡 Briefly</h1>
+            <p class="subtitle">Unlock Exceptional Marketing: Transform Your Briefs, Transform Your Results.</p>
+        </div>
+    </div>
+    """,
     unsafe_allow_html=True,
 )
 
-# Add a brief description of how to use the app
+# --- How It Works Section ---
+st.markdown('<h2 class="section-title">How It Works</h2>', unsafe_allow_html=True)
 st.markdown(
     """
-    <div class="description">
-        <h2>How It Works</h2>
-        <ol style="text-align: left; margin: 0 auto; max-width: 800px;">
-            <li><strong>Upload Your Brief:</strong> Upload your marketing brief in DOCX or PDF format.</li>
-            <li><strong>AI Analysis:</strong> Our AI analyzes your brief to provide actionable insights.</li>
-            <li><strong>Receive Feedback:</strong> Get feedback on clarity of objectives, strategic alignment, target audience definition, competitive analysis, channel strategy, and key performance indicators (KPIs).</li>
-            <li><strong>Drive Results:</strong> Use the insights to create more effective and impactful marketing campaigns that drive results.</li>
-        </ol>
-    </div>
+    <div class="section-description">
+  <h3 style="text-align: center;">Unlock Your Marketing Potential with Briefly</h3> 
+  <ol style="text-align: left; margin: 0 auto; max-width: 800px;">
+    <li><strong>Share Your Brief:</strong> Upload your marketing brief (DOCX or PDF) – it's the first step to unlocking your campaign's full potential.</li>
+    <li><strong>Expert Analysis:</strong> Our advanced AI dissects your brief, providing an in-depth analysis to pinpoint strengths and areas for improvement.</li>
+    <li><strong>Receive Clear, Actionable Suggestions:</strong> Get targeted feedback on key areas like objectives, target audience, competitive landscape, channel strategy, KPIs, and more. </li>
+    <li><strong>Transform Your Brief, Transform Your Results:</strong>  Use Briefly's insights to refine your strategy, create more impactful campaigns, and achieve your marketing goals with confidence.</li>
+  </ol>
+</div>
     """,
     unsafe_allow_html=True,
 )
@@ -258,24 +263,26 @@ st.markdown("---")
 st.header("Why Choose Briefly?")
 st.markdown(
     """
-    <p class="description">
+    <p class="section-description">
         Briefly combines the expertise of seasoned marketing professionals with the power of AI to help you craft marketing briefs that drive success. Our platform provides you with the tools and insights needed to ensure your campaigns are effective, targeted, and impactful.
     </p>
     """,
     unsafe_allow_html=True,
 )
 
-col1, col2, col3 = st.columns(3) # Create 3 columns
+# Use the new CSS classes in your HTML structure
+st.markdown('<div class="benefit-card-container">', unsafe_allow_html=True)
+col1, col2, col3 = st.columns(3)
 
 with col1:
     st.markdown(
         """
-        <div class="benefit">
+        <div class="benefit-card">
             <div class="benefit-container">
                 <span class="benefit-icon">🎯</span> 
-                <h3>A Foundation for Success</h3>
+                <h3 class="benefit-title">A Foundation for Success</h3>
             </div>
-            <p>Briefly provides the framework and expert guidance to craft briefs that inspire confidence and clarity. We help you articulate your vision, define measurable objectives, and ensure everyone is on the same page from day one.</p>
+            <p class="benefit-description">Briefly provides the framework and expert guidance to craft briefs that inspire confidence and clarity. We help you articulate your vision, define measurable objectives, and ensure everyone is on the same page from day one.</p>
         </div>
         """,
         unsafe_allow_html=True,
@@ -284,12 +291,12 @@ with col1:
 with col2:
     st.markdown(
         """
-        <div class="benefit">
+        <div class="benefit-card">
             <div class="benefit-container">
                 <span class="benefit-icon">⚙️</span> 
-                <h3>Streamlined Collaboration</h3>
+                <h3 class="benefit-title">Streamlined Collaboration</h3>
             </div>
-            <p>Briefly facilitates seamless communication and collaboration, eliminating ambiguity and reducing time-consuming revisions. It's like having an experienced marketing director guiding your team every step of the way.</p>
+            <p class="benefit-description">Briefly facilitates seamless communication and collaboration, eliminating ambiguity and reducing time-consuming revisions. It's like having an experienced marketing director guiding your team every step of the way.</p>
         </div>
         """,
         unsafe_allow_html=True,
@@ -298,23 +305,24 @@ with col2:
 with col3:
     st.markdown(
         """
-        <div class="benefit">
+        <div class="benefit-card">
             <div class="benefit-container">
                 <span class="benefit-icon">📊</span> 
-                <h3>Data-Driven Insights</h3>
+                <h3 class="benefit-title">Data-Driven Insights</h3>
             </div>
-            <p>Briefly goes beyond gut feelings. Our analysis provides actionable insights, identifies potential gaps, and helps you refine your strategy for maximum impact.</p>
+            <p class="benefit-description">Briefly goes beyond gut feelings. Our analysis provides actionable insights, identifies potential gaps, and helps you refine your strategy for maximum impact.</p>
         </div>
         """,
         unsafe_allow_html=True,
     )
+st.markdown('</div>', unsafe_allow_html=True) # Close the benefit-card-container
 
-    # --- Score Explanation Table ---
+# --- Score Explanation Table ---
 st.markdown("---")
 st.header("Understanding Your Scores")
 st.markdown(
     """
-    <p class="description">
+    <p class="section-description">
         The following table explains the criteria used to evaluate your marketing brief. Each criterion is crucial for creating an effective and impactful marketing campaign.
     </p>
     """,

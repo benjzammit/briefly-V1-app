@@ -60,18 +60,60 @@ def apply_custom_styles():
                 text-align: center;
                 font-size: 48px;
                 font-weight: bold;
-                color: #2962FF; /* Briefly Blue */ 
+                color: #ffffff; /* White text for contrast */
                 margin-bottom: 10px;
             }
 
             .subtitle {
                 text-align: center;
                 font-size: 24px;
-                color: #616161; /* Summit Gray */ 
+                color: #ffffff; /* White text for contrast */
                 margin-bottom: 30px; 
             }
 
-            .description {
+            .background-container {
+                position: relative;
+                width: 100%;
+                height: auto;
+                background-image: url('https://www.wpp.com/en/-/media/project/wpp/images/wpp-iq/2023/creativepowerhousemain.jpg');
+                background-size: cover;
+                background-position: center;
+                padding: 60px 20px;
+                box-sizing: border-box;
+            }
+
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent overlay */
+                z-index: 1;
+            }
+
+            .content {
+                position: relative;
+                z-index: 2;
+            }
+
+            .section-title {
+                text-align: center;
+                font-size: 36px;
+                font-weight: bold;
+                color: #2962FF; /* Briefly Blue */
+                margin-top: 40px;
+                margin-bottom: 20px;
+            }
+
+            .section-subtitle {
+                text-align: center;
+                font-size: 20px;
+                color: #616161; /* Summit Gray */
+                margin-bottom: 30px;
+            }
+
+            .section-description {
                 text-align: center;
                 font-size: 18px;
                 color: #616161; /* Summit Gray */
@@ -79,146 +121,75 @@ def apply_custom_styles():
                 margin-bottom: 40px;
             }
 
-            .how-it-works {
-                padding-top: 40px;
-                padding-bottom: 40px;
-            }
-
-            .how-it-works h2 {
-                text-align: left;
-                margin-bottom: 20px;
-            }
-
-            .how-it-works ol {
-                text-align: left;
-                margin: 0 auto;
-                max-width: 800px;
-                padding-left: 20px;
-            }
-
-            .how-it-works li {
-                margin-bottom: 15px;
-            }
-
-            .benefit {
-                text-align: center; /* Center content in benefits */
-                padding: 30px 20px; /* Increased padding */
-                border-radius: 12px; /* Softer corners */
-                background-color: #ffffff; /* White background */
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-                margin-bottom: 30px; /* Add margin between benefits */
-                transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add a hover effect */
-            }
-
-            .benefit:hover {
-                transform: translateY(-5px); /* Lift on hover */
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
-            }
-
-            .benefit h3 {
-                color: #2962FF; /* Briefly Blue */
-                margin-bottom: 10px; /* Add space below heading */
-            }
-
-            .trained-text {
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: #f8f9fa;
+                color: #616161;
                 text-align: center;
-                font-size: 18px;
-                color: #616161; /* Summit Gray */
-                margin-bottom: 30px;
+                padding: 10px 0;
+                font-size: 14px;
+            }
+            .footer a {
+                color: #2962FF;
+                text-decoration: none;
+            }
+            .footer a:hover {
+                text-decoration: underline;
+            }
+            .footer-icon {
+                vertical-align: middle;
+                margin-right: 5px;
             }
 
-            .benefit-container {
+            /* Benefit Card Styles */
+            .benefit-card-container {
                 display: flex;
-                flex-direction: column; /* Stack icon and text vertically */
-                align-items: center; 
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin-bottom: 40px;
+            }
+
+            .benefit-card {
+                background-color: #fff;
+                border-radius: 8px;
+                padding: 30px;
+                margin-bottom: 20px;
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+                flex: 0 0 calc(33.333% - 20px); 
+                text-align: left; /* Align text to the left within the card */
+            }
+
+            @media (max-width: 768px) {
+                .benefit-card {
+                    flex: 0 0 100%;
+                    margin-bottom: 20px;
+                }
+            }
+
+            .benefit-container { /* Style the container for the icon and title */
+                display: flex;
+                align-items: center; /* Vertically align icon and title */
+                margin-bottom: 15px; 
             }
 
             .benefit-icon {
-                font-size: 48px; /* Larger icon */
-                margin-bottom: 15px; /* Add space below icon */
-                color: #FFA500; /* Spark Orange */
+                font-size: 28px; 
+                margin-right: 10px; /* Space between icon and title */
             }
 
-            .suggestion-text {
-                font-size: 16px; 
-                font-weight: bold;
-            }
-
-            /* Style for metric box */
-            .metric-container {
-                border: 2px solid #f0f0f0;
-                border-radius: 10px;
-                padding: 20px;
-                text-align: center;
-                background-color: #ffffff; /* White background */
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-            }
-
-            .metric-value {
-                font-size: 36px;
-                font-weight: bold;
-                color: #2962FF; /* Briefly Blue */
-            }
-
-            .metric-label {
-                font-size: 18px;
-                color: #616161; /* Summit Gray */
-            }
-
-            /* Accordion styling */
-            .st-expander {
-                background-color: #ffffff; /* White background */
-                border-radius: 10px; /* Rounded corners */
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-                margin-bottom: 20px; /* Space between accordions */
-            }
-
-            /* Button styling */
-            .stButton>button {
-                background-color: #2962FF; /* Briefly Blue */
-                color: white;
-                border: none;
-                border-radius: 10px;
-                padding: 10px 20px;
-                font-size: 16px;
-                cursor: pointer;
-                transition: background-color 0.2s ease, transform 0.2s ease;
-            }
-
-            .stButton>button:hover {
-                background-color: #0056b3; /* Darker blue on hover */
-                transform: translateY(-2px); /* Slight lift on hover */
-            }
-
-            /* Gap Analysis and Competitors Section */
-            .gap-analysis-title, .competitors-title, .sentiment-title {
+            .benefit-title {
+                color: #2962FF;
                 font-size: 24px;
-                font-weight: bold;
-                color: #2962FF; /* Briefly Blue */
-                margin-bottom: 10px;
+                margin-bottom: 0; /* Remove default margin from h3 */
             }
 
-            .gap-analysis-item {
+            .benefit-description {
+                color: #616161;
                 font-size: 16px;
-                color: #616161; /* Summit Gray */
-            }
-
-            .highlight {
-                background-color: #dff0d8; /* Light green background */
-                border-left: 5px solid #3c763d; /* Dark green border */
-                padding: 10px;
-                margin-bottom: 10px;
-            }
-
-            .error-text {
-                color: red;
-                font-weight: bold;
-            }
-
-            /* Padding for columns */
-            .stColumn {
-                padding-left: 20px;
-                padding-right: 20px;
+                line-height: 1.5;
             }
         </style>
         """,
