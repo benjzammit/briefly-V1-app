@@ -16,10 +16,10 @@ def extract_text_from_docx(file_bytes):
 
 def extract_text_from_pdf(file_bytes):
     try:
-        pdf_reader = PyPDF2.PdfFileReader(io.BytesIO(file_bytes))
+        pdf_reader = PyPDF2.PdfReader(io.BytesIO(file_bytes))
         text = ""
-        for page_num in range(pdf_reader.numPages):
-            page = pdf_reader.getPage(page_num)
+        for page_num in range(len(pdf_reader.pages)):  # Use len(pdf_reader.pages)
+            page = pdf_reader.pages[page_num]         # Access pages using []
             text += page.extract_text()
         return text
     except Exception as e:

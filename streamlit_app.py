@@ -21,7 +21,7 @@ st.markdown(
     <div class="background-container">
         <div class="overlay"></div>
         <div class="content">
-            <h1 class="title">💡 Briefly</h1>
+            <h1 class="title">💡 Briefly.</h1>
             <p class="subtitle">&nbsp&nbspTransform Your Briefs, Transform Your Results.&nbsp&nbsp</p>
         </div>
     </div>
