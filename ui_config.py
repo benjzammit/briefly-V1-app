@@ -192,6 +192,10 @@ def apply_custom_styles():
                 font-size: 16px;
                 line-height: 1.5;
             }
+            .error-text {
+                color: red;
+                font-weight: bold;
+            }
 
             /* Understanding Your Scores Section */
             .category-container {
